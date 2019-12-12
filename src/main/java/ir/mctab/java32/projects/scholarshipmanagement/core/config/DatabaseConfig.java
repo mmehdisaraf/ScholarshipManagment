@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class DatabaseConfig {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/scholarship";
+    static final String DB_URL = "jdbc:mysql://localhost/univecity";
     //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "root";
+    static final String USER = "test";
+    static final String PASS = "123";
     private static Connection connection;
 
     public static Connection getDatabaseConnection() throws ClassNotFoundException, SQLException {
