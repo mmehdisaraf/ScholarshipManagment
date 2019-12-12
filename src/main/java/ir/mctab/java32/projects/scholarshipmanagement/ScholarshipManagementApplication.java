@@ -99,6 +99,14 @@ public class ScholarshipManagementApplication {
                 acceptScholarshipByManagerUseCase.accept(Long.parseLong(scholarshipId));
                 System.out.println("Done.");
             }
+            if (command.equals("mnreject")){
+                RejectScholarshipByManagerUseCase rejectScholarshipByManagerUseCase =
+                        new RejectScholarshipByManagerUseCaseImpl();
+                System.out.println("scholarship Id: ");
+                String scholarshipId = scanner.nextLine();
+                rejectScholarshipByManagerUseCase.accept(Long.parseLong(scholarshipId));
+                System.out.println("Done.");
+            }
         }
     }
 }
