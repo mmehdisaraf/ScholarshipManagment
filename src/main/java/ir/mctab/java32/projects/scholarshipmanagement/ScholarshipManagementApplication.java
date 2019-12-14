@@ -31,6 +31,14 @@ public class ScholarshipManagementApplication {
                     System.out.println(" Login successful by " + user.getRole());
                 }
             }
+            if (command.equals("dashboard")){
+                DashboardStudentUseCase dashboardStudentUseCase =
+                        new DashboardStudentUseCaseImpl();
+                List<Scholarship> scholarship = dashboardStudentUseCase
+                        .listScholarships();
+                for (int i = 0; i < scholarship.size(); i++) {
+                    System.out.println(scholarship.get(i));}
+            }
             //
             if (command.equals("request")){
                 RequestScholarshipByStudentUseCase requestScholarshipByStudentUseCase
@@ -81,6 +89,14 @@ public class ScholarshipManagementApplication {
                 acceptScholarshipBySupervisorUsecase.accept(Long.parseLong(scholarshipId));
                 System.out.println("Done.");
             }
+            if (command.equals("screject")){
+                RejectScholarshipBySupervisorUseCase rejectScholarshipBySupervisorUseCase =
+                        new RejectScholarshipBySupervisorUseCaseImpl();
+                System.out.println("scholarship Id: ");
+                String scholarshipId = scanner.nextLine();
+                rejectScholarshipBySupervisorUseCase.reject(Long.parseLong(scholarshipId));
+                System.out.println("Done.");
+            }
             if (command.equals("mnlist")) {
                 FindScholarshipByManagerUseCase findScholarshipByManagerUseCase
                         = new FindScholarshipByManagerUseCaseImpl();
@@ -104,9 +120,19 @@ public class ScholarshipManagementApplication {
                         new RejectScholarshipByManagerUseCaseImpl();
                 System.out.println("scholarship Id: ");
                 String scholarshipId = scanner.nextLine();
-                rejectScholarshipByManagerUseCase.accept(Long.parseLong(scholarshipId));
+                rejectScholarshipByManagerUseCase.reject(Long.parseLong(scholarshipId));
                 System.out.println("Done.");
+            }
+            if (command.equals("unilist")){
+                FindScholarshipByUniversityUseCase findScholarshipByUniversityUseCase =
+                        new FindScholarshipByUniversityUseCaseImpl();
+                List<Scholarship> scholarships = findScholarshipByUniversityUseCase
+                        .listScholarships();
+                for (int i = 0; i < scholarships.size(); i++) {
+                    System.out.println(scholarships.get(i));
+
             }
         }
     }
+}
 }

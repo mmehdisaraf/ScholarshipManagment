@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 @Service
 public class RejectScholarshipByManagerUseCaseImpl implements RejectScholarshipByManagerUseCase {
-    public void accept(long scholarshipId) {
+    public void reject(long scholarshipId) {
         User loginUser = AuthenticationService.getInstance().getLoginUser();
         if(loginUser != null && loginUser.getRole().equals("manager")){
             //connection

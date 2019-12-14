@@ -27,7 +27,7 @@ public class FindScholarshipByUniversityUseCaseImpl implements FindScholarshipBy
                 try {
                     connection = DatabaseConfig.getDatabaseConnection();
                     // query
-                    String sql = "select * from scholarship where status = 'AccepterByManager' ";
+                    String sql = "select * from scholarship where status = 'AcceptedByManager' ";
                     // result
                     PreparedStatement preparedStatement = connection.prepareStatement(sql);
                     ResultSet resultSet = preparedStatement.executeQuery();
